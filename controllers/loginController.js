@@ -1,9 +1,11 @@
 const { checkAuth } = require("../services/authService");
 const { generateToken } = require("../services/tokenService");
 
-async function handleLogin(req, res, auth) {
+async function hundleLogin(req, res, auth) {
   if (await checkAuth(auth)) {
     const token = await generateToken();
+    res.statusCode = 200;
+    res.statusMessage = "OK";
     res.end(token);
   } else {
     res.statusCode = 403;
@@ -12,4 +14,4 @@ async function handleLogin(req, res, auth) {
   }
 }
 
-module.exports = { handleLogin };
+module.exports = { hundleLogin };

@@ -21,4 +21,4 @@ function processUrl(url) {
   };
 }
 
-module.exports = { processUrl };
+module.exports = { processUrl,queryString };
